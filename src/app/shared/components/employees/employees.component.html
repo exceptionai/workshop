@@ -1,0 +1,30 @@
+
+
+<ul *ngIf="employeeList.length > 0" class="lista">
+    <li *ngFor="let employee of employeeList">
+        {{employee?.name}}
+    </li>
+</ul>
+
+{{employeeList.length}}
+
+
+<div #teste [ngClass]="{'carregando': employeeList.length ? '' : ''}" *ngIf="employeeList.length == 0" >
+    Carregando...
+</div>
+
+<!-- <form #formularioEmployee  (ngSubmit)="saveEmployee(formularioEmployee)">
+    <input type="text" name="employeeName" [(ngModel)]="employee">
+    <input type="text" name="departmentName" [(ngModel)]="department">
+</form> -->
+
+
+<form [formGroup]="formEmployee" (ngSubmit)="saveEmployee()">
+    <input [ngClass]="hasError('employeeName')" type="text" required  name="employeeName"  formControlName="employeeName">
+    {{getErrors('employeeName')}}
+
+    <input type="text" name="departmentName" formControlName="departmentName">
+    {{getErrors('departmentName')}}
+
+    <button type="submit"  >Enviar </button>
+</form>

@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "roteamento"
+    }
+  },
+  "defaultProject": "roteamento",
+  "cli": {
+    "analytics": "2b052404-62c9-4bd1-844e-733223878bed"
+  }
 }
